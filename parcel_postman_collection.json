@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "810e671d-82ba-4d4b-a7eb-97004bcceaad",
+		"name": "Parcels",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "4168559"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"sender1\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:6500/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Create Parcel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"pickupAddress\": \"cairo\",\n    \"dropoffAddress\": \"berlin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:6500/api/parcels/createParcel"
+			},
+			"response": []
+		},
+		{
+			"name": "getParcelsForSender",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "localhost:6500/api/parcels/getParcelsForSender"
+			},
+			"response": []
+		},
+		{
+			"name": "assignParcelToBiker",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"parcelId\": \"e3e2d2fe-3bb2-4652-8cdf-dc18e0d8a486\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:6500/api/parcels/assignParcel"
+			},
+			"response": []
+		},
+		{
+			"name": "deliverParcel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"parcelId\": \"e3e2d2fe-3bb2-4652-8cdf-dc18e0d8a486\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "localhost:6500/api/parcels/deliverParcel"
+			},
+			"response": []
+		},
+		{
+			"name": "getParcelsForBikers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "localhost:6500/api/parcels/getParcelsForBikers"
+			},
+			"response": []
+		}
+	]
+}
