@@ -1,3 +1,12 @@
+- Node.js
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- Next UI
+- Redux Toolkit
+- NGINX
+- Docker
+
 ## Docker Setup (in backend configured to be in debug mode)
 
 ## Frontend Environment Variables
