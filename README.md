@@ -1,4 +1,5 @@
 - Node.js
+- Mongodb
 - Next.js 14
 - TypeScript
 - Tailwind CSS
@@ -6,6 +7,10 @@
 - Redux Toolkit
 - NGINX
 - Docker
+- faker
+- jwt
+- framer-motion
+- next themes
 
 ## Docker Setup (in backend configured to be in debug mode)
 
