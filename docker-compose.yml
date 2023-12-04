@@ -1,0 +1,68 @@
+version: '3.8'
+services:
+
+  server:
+    build: ./Server
+    networks:
+      - parcel-dev_default
+    ports:
+      - "6500:6500"
+      - "9229:9229"
+    environment:
+      - PORT=6500
+    depends_on:
+      - mongo
+    volumes:
+      - /usr/src/app/node_modules
+      - ./Server:/usr/src/app
+
+  client:
+    build:
+      context: ./Client
+      dockerfile: Dockerfile.nextjs
+    networks:
+      - parcel-dev_default
+    ports:
+      - "7200:7200"
+    environment:
+      - PORT=7200
+    depends_on:
+      - mongo
+    volumes:
+      - /app/node_modules
+      - ./Client:/app
+      
+  mongo:
+    image: mongo
+    networks:
+      - parcel-dev_default
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=ashry
+      - MONGO_INITDB_ROOT_PASSWORD=ashry
+      - MONGO_INITDB_DATABASE=parcelDB
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  # nginx:
+  #   build:
+  #     context: ./Client
+  #     dockerfile: Dockerfile.nginx
+  #   container_name: nginx-proxy
+  #   restart: unless-stopped
+  #   ports:
+  #     - '80:80'
+  #     - '443:443'
+  #   volumes:
+  #     - ./Client:/app/nginx/nginx.conf:/etc/nginx/nginx.conf
+  #     - ./Client:/app/api.parcel.com.crt:/etc/nginx/ssl/api.parcel.com.crt
+  #     - ./Client:/app/api.parcel.com.key:/etc/nginx/ssl/api.parcel.com.key
+  #   depends_on:
+  #     - client
+      
+volumes:
+  mongo-data:
+networks:
+  parcel-dev_default:
+    driver: bridge
