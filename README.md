@@ -8,7 +8,7 @@
 - MONGO_URI: mongodb://ashry:ashry@mongo/parcelDB?authSource=admin
 - useMongoDB: true (to use MongoDB), false (to use faker data)
 - PORT: 6500
-- FRONTEND_URL: http://localhost:3000 (used to enable CORS)
+- FRONTEND_URL: http://localhost:7200 (used to enable CORS)
 
 Explanation:
 JWT_SECRET: Used for JWT authentication.
